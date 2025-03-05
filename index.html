@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Tạo nhiều -->
+    <table border="1">
+        <tr>
+            <th>Chức năng</th>
+            <th>Lệnh</th>
+        </tr>
+        <tr>
+            <th>Tạo nhiều Folder cùng 1 lúc</th>
+            <td>
+                mkdir folder1, folder2
+                <span style="font-weight: 900;">hoặc</span>
+                md folder1, folder2
+            </td>
+        </tr>
+        <tr>
+            <th>Tạo ít hoặc nhiều File cùng 1 lúc</th>
+            <td>
+                ni file1,file2
+                <span style="font-weight: 900;">hoặc</span>
+                New-Item file1, file2
+            </td>
+        </tr>
+        <tr>
+            <th>Xóa ít hoặc nhiều folder/file</th>
+            <td>
+                del folder
+                <span style="font-weight: 900;">hoặc</span>
+                del j.txt
+                <span style="font-weight: 900;">hoặc</span>
+                del f1, j.txt
+                <span style="font-weight: 900;">hoặc</span>
+                remove-item folder, j.txt
+                <span style="font-weight: 900;">hoặc</span>
+                rd f1, f2, f3
+            </td>
+        </tr>
+        <tr>
+            <th>Xóa tất cả các Folder và file cùng lúc</th>
+            <td>Remove-Item *</td>
+        </tr>
+        <tr>
+            <th>Kiểm tra file/thư mục có tồn tại không</th>
+            <td>- Test-Path Folder/File</td>
+        </tr>
+        <tr>
+            <th>Thay đổi tên folder chính được tạo ngay chính trên ổ đĩa. liệt kê tất cả folder trong ổ đĩa f</th>
+            <td>
+                <ol>
+                    <li>Xem đường dẫn đang nằm ở đâu nếu nằm ở ổ đĩa thì đúng. VD: F:\</li>
+                    <li>dùng lệnh: rename-item -path "F:\tên folder cũ" -newname "tên folder mới"</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Tạo thư mục và file cùng 1 lúc</th>
+            <td>
+                <ul>
+                    <li>
+                        - copy bỏ vào hết là chạy được <br>
+                        New-Item -Path "F:\Project\README.md" -ItemType File -Force <br>
+                        New-Item -Path "F:\Project\src\index.js" -ItemType File -Force <br>
+                        New-Item -Path "F:\Project\assets\logo.png" -ItemType File -Force
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Di chuyển một file</th>
+            <td>
+                Move-Item -Path "MyFolder\f5\file2.md" -Destination "MyFolder"
+                <ul>
+                    <li>Lưu ý: nếu mà lấy file từ folder f5 di chuyển ra folder Myfolder thì phải đúng từ folder nhận file cần di chuyển là folder MyFolder</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Di chuyển tất cả file trong một thư mục</th>
+            <td>Move-Item -Path "C:\Source\*" -Destination "C:\Target\"</td>
+        </tr>
+        <tr>
+            <th>Di chuyển nhiều file cùng lúc</th>
+            <td>Move-Item -Path "C:\Source\file1.txt", "C:\Source\file2.txt" -Destination "C:\Target\"</td>
+        </tr>
+        <tr>
+            <th>Di chuyển file với điều kiện cụ thể</th>
+            <td>Move-Item -Path "C:\Source\*.txt" -Destination "C:\Target\"</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <tr>
+            <th>Những cách nắm bắt thư mục và chỉnh thư mục làm sao</th>
+            <td>
+                <ol>
+                    <li>
+                        | MyFolder <br>
+                        | -- f5 <br>
+                        |  | -- file1.md <br>
+                        |   | -- file2.md <br>
+                        | -- f6 <br>
+                        |   | -- file4.md <br>
+                        | file3.md
+                    </li>
+                    <li>
+                        * Những điều cần chú ý: <br>
+                        &nbsp;&nbsp;&nbsp;- Để ý đường dẫn trong terminal(powerShell), nếu mình đang làm việc với MyFolder mà đường dẫn lại là <br>
+                        &nbsp;&nbsp;&nbsp;F:\Myfolder> thì lúc này phải chỉnh lại đường dẫn hoặc là dùng -path để chỉnh lại đường dẫn đúng(F:\MyFolder\file1.md) <br>
+                        &nbsp;&nbsp;&nbsp;- Nếu mình đang muốn làm việc với con của MyFolder thì mình phải có tk cha lớn hơn đó là ổ đĩa F:\
+                    </li>
+                    <li>
+                        - Nếu có 1 file đang
+                    </li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Di chuyển và đổi tên file</th>
+            <td>Move-Item -Path "C:\Source\file.txt" -Destination "C:\Target\newfile.txt"</td>
+        </tr>
+    </table>
+</body>
+
+</html>
