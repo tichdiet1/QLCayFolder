@@ -137,6 +137,18 @@
             <td>Move-Item -Path "C:\Source\file.txt" -Destination "C:\Target\newfile.txt"</td>
         </tr>
     </table>
+    <table>
+        <tr>
+            <td>Lỗi thường gặp
+                - Bạn đang gặp lỗi DirectoryNotEmpty, có nghĩa là thư mục test chứa file hoặc thư mục con chưa được xóa hết. Hãy thử các cách sau để xóa thư mục trong PowerShell:
+                &nbsp;+ Remove-Item -Path "F:\caythumuc\test" -Recurse -Force
+                &nbsp;<ul>
+                    <li>-Recurse → Xóa tất cả file và thư mục con.</li>
+                    <li>-Force → Bỏ qua cảnh báo về quyền truy cập.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
